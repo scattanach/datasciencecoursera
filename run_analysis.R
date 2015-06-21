@@ -61,11 +61,6 @@ y.test <- rbind(test.y.test, train.y.test)
 #t.a.z <- rbind(test.t.a.z, train.t.a.z)
 
 names(subject.test) <- c("Subject")
-#names(x.test) <- str_replace_all(features$V2, "[^[:alnum:]]", "")
-
-
-
-#tidyData <- cbind(std, mean)
 
 y.test$V1[y.test$V1 == 1]  <- "WALKING"
 y.test$V1[y.test$V1 == 2] <- "WALKING_UPSTAIRS"
