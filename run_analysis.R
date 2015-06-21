@@ -5,44 +5,40 @@ library("plyr")
 #install.packages("dplyr")
 library("dplyr")
 
+test.subject.test <- read.table("subject_test.txt", header=FALSE) # [1] 2947    1
+test.x.test <- read.table("X_test.txt", header=FALSE) # [1] 2947  561
+test.y.test <- read.table("Y_test.txt", header=FALSE) # [1] 2947    1
 
+#test.b.a.x <- read.table("Inertial Signals/body_acc_x_test.txt", header=FALSE) # [1] 2947  128
+#test.b.a.y <- read.table("Inertial Signals/body_acc_y_test.txt", header=FALSE) # [1] 2947  128
+#test.b.a.z <- read.table("Inertial Signals/body_acc_z_test.txt", header=FALSE) # [1] 2947  128
 
-setwd("Coursera")
+#test.b.g.x <- read.table("Inertial Signals/body_gyro_x_test.txt", header=FALSE) # [1] 2947  128
+#test.b.g.y <- read.table("Inertial Signals/body_gyro_y_test.txt", header=FALSE) # [1] 2947  128
+#test.b.g.z <- read.table("Inertial Signals/body_gyro_z_test.txt", header=FALSE) # [1] 2947  128
 
-test.subject.test <- read.table("UCI HAR Dataset/test/subject_test.txt", header=FALSE) # [1] 2947    1
-test.x.test <- read.table("UCI HAR Dataset/test/X_test.txt", header=FALSE) # [1] 2947  561
-test.y.test <- read.table("UCI HAR Dataset/test/Y_test.txt", header=FALSE) # [1] 2947    1
+#test.t.a.x <- read.table("Inertial Signals/total_acc_x_test.txt", header=FALSE) # [1] 2947  128
+#test.t.a.y <- read.table("Inertial Signals/total_acc_y_test.txt", header=FALSE) # [1] 2947  128
+#test.t.a.z <- read.table("Inertial Signals/total_acc_z_test.txt", header=FALSE) # [1] 2947  128
 
-#test.b.a.x <- read.table("UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt", header=FALSE) # [1] 2947  128
-#test.b.a.y <- read.table("UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt", header=FALSE) # [1] 2947  128
-#test.b.a.z <- read.table("UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt", header=FALSE) # [1] 2947  128
+train.subject.test <- read.table("subject_train.txt", header=FALSE) # [1] 7352    1
+train.x.test <- read.table("X_train.txt", header=FALSE) # [1] 7352  561
+train.y.test <- read.table("Y_train.txt", header=FALSE) # [1] 7352    1
 
-#test.b.g.x <- read.table("UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt", header=FALSE) # [1] 2947  128
-#test.b.g.y <- read.table("UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt", header=FALSE) # [1] 2947  128
-#test.b.g.z <- read.table("UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt", header=FALSE) # [1] 2947  128
+#train.b.a.x <- read.table("Inertial Signals/body_acc_x_train.txt", header=FALSE) # [1] 7352  128
+#train.b.a.y <- read.table("Inertial Signals/body_acc_y_train.txt", header=FALSE) # [1] 7352  128
+#train.b.a.z <- read.table("Inertial Signals/body_acc_z_train.txt", header=FALSE) # [1] 7352  128
 
-#test.t.a.x <- read.table("UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt", header=FALSE) # [1] 2947  128
-#test.t.a.y <- read.table("UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt", header=FALSE) # [1] 2947  128
-#test.t.a.z <- read.table("UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt", header=FALSE) # [1] 2947  128
+#train.b.g.x <- read.table("Inertial Signals/body_gyro_x_train.txt", header=FALSE) # [1] 7352  128
+#train.b.g.y <- read.table("Inertial Signals/body_gyro_y_train.txt", header=FALSE) # [1] 7352  128
+#train.b.g.z <- read.table("Inertial Signals/body_gyro_z_train.txt", header=FALSE) # [1] 7352  128
 
-train.subject.test <- read.table("UCI HAR Dataset/train/subject_train.txt", header=FALSE) # [1] 7352    1
-train.x.test <- read.table("UCI HAR Dataset/train/X_train.txt", header=FALSE) # [1] 7352  561
-train.y.test <- read.table("UCI HAR Dataset/train/Y_train.txt", header=FALSE) # [1] 7352    1
+#train.t.a.x <- read.table("Inertial Signals/total_acc_x_train.txt", header=FALSE) # [1] 7352  128
+#train.t.a.y <- read.table("Inertial Signals/total_acc_y_train.txt", header=FALSE) # [1] 7352  128
+#train.t.a.z <- read.table("Inertial Signals/total_acc_z_train.txt", header=FALSE) # [1] 7352  128
 
-#train.b.a.x <- read.table("UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt", header=FALSE) # [1] 7352  128
-#train.b.a.y <- read.table("UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt", header=FALSE) # [1] 7352  128
-#train.b.a.z <- read.table("UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt", header=FALSE) # [1] 7352  128
-
-#train.b.g.x <- read.table("UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt", header=FALSE) # [1] 7352  128
-#train.b.g.y <- read.table("UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt", header=FALSE) # [1] 7352  128
-#train.b.g.z <- read.table("UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt", header=FALSE) # [1] 7352  128
-
-#train.t.a.x <- read.table("UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt", header=FALSE) # [1] 7352  128
-#train.t.a.y <- read.table("UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt", header=FALSE) # [1] 7352  128
-#train.t.a.z <- read.table("UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt", header=FALSE) # [1] 7352  128
-
-act.lab <- read.table("UCI HAR Dataset/activity_labels.txt", header=FALSE) # [1] 6 2
-features <- read.table("UCI HAR Dataset/features.txt", header=FALSE) # [1] 561   2
+act.lab <- read.table("activity_labels.txt", header=FALSE) # [1] 6 2
+features <- read.table("features.txt", header=FALSE) # [1] 561   2
 
 subject.test <- rbind(test.subject.test, train.subject.test)
 x.test <- rbind(test.x.test, train.x.test)
